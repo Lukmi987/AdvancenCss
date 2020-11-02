@@ -1,7 +1,6 @@
 // 10px == 1rem so 1140px
 .row{
   max-width: $grid-width;
-  background-color: #eee;
   margin: 0 auto;
 
   //.row:not(), not is like negace , select everything except last-child
@@ -12,7 +11,6 @@
 
   //select all  class Atributes start with col- ^ any thta starts, * any which contains, $ any which ends
   [class^="col-"] {
-    background-color: orangered;
     float: left;
 
     &:not(:last-child){
