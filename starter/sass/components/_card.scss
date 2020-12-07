@@ -1,4 +1,6 @@
 .card {
+
+  //FUNCTIONALITY
     //pespective needs to be on paret element
   perspective: 150rem;
   //in order to work in mozzila
@@ -7,10 +9,8 @@
   height: 50rem;
 
   &__side {
-
     color: #fff;
     font-size: 2rem;
-
     height: 50rem;
     transition: all .8s ease;
     position: absolute; // we take the cards of the natural flow and therefore parent collapsad(we have to give parent height) and has no height
@@ -19,6 +19,7 @@
     width: 100%;
     backface-visibility: hidden; //hides the back part of the element
     border-radius: 3px;
+    overflow: hidden; //othewise image will over flow the corners
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
     &--front {
@@ -34,11 +35,41 @@
 
   .card:hover .card__side {}
   &:hover &__side--front{
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
 
   &:hover &__side--back {
     transform: rotateY(0);
   }
 
+//FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen; //only chrome a mozzila
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);//in orde to work in all browsers --webkit
+
+    &--1{
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+        url(../img/nat-5.jpg); // the path is defined relative to compiled style.css file
+    }
+    &--2{
+        background-image: url(../img/nat-5.jpg);
+    }
+    &--3{
+        background-image: url(../img/nat-5.jpg);
+    }
+  }
+
+    &__heading{
+      font-size: 2.8rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: right;
+      color: $color-white;
+      position: absolute;
+      top: 12rem;
+      right: 2rem;
+    }
 }
