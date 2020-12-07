@@ -4,26 +4,31 @@
   //in order to work in mozzila
   -moz-perspective: 150rem;
   position: relative; //when i set child absolute , parent relative
+  height: 50rem;
 
   &__side {
-    background-color: orangered;
+
     color: #fff;
     font-size: 2rem;
 
     height: 50rem;
-    transition: all .8s;
-    position: absolute;
+    transition: all .8s ease;
+    position: absolute; // we take the cards of the natural flow and therefore parent collapsad(we have to give parent height) and has no height
     top: 0;
     left: 0;
     width: 100%;
     backface-visibility: hidden; //hides the back part of the element
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
     &--front {
-      background-color: orangered;
+      background-color: $color-white;
     }
     &--back {
-      background-color: green;
       transform: rotateY(180deg);
+      &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+      }
     }
   }
 
